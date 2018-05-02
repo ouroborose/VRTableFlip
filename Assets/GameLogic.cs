@@ -18,12 +18,15 @@ public class GameLogic : MonoBehaviour {
     public Text scoreText;
     public int scoreValue = 0;
 
+    // debug stuff
+    public TableBehavior Table1;
+    public TableBehavior Table2;
+    public TableBehavior Table3;
 
 
     // Use this for initialization
     void Start () {
-		
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,14 +38,19 @@ public class GameLogic : MonoBehaviour {
         // turns all stars back on
         // puts score to 0
 
-        for (int i = 0; i < starsInLevel.Length; i++)
-        {
-            starsInLevel[i].StarReset();
-            gameObject.SetActive(true);
-            scoreValue = 0;
-            scoreText.text = "Stars:  " + scoreValue.ToString() + " / " + starsInLevel.Length.ToString();
-        }
-            
+        //for (int i = 0; i < starsInLevel.Length; i++)
+        //{
+        //   starsInLevel[i].StarReset();
+        //  gameObject.SetActive(true);
+        //  scoreValue = 0;
+        //  scoreText.text = "Stars:  " + scoreValue.ToString() + " / " + starsInLevel.Length.ToString();
+        // }
+
+        //places tables back
+        Table1.ResetTable();
+        Table2.ResetTable();
+        Table3.ResetTable();
+
     }
 
     public void IncrementScore()

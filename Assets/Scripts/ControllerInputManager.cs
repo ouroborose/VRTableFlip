@@ -20,11 +20,12 @@ public class ControllerInputManager : MonoBehaviour {
     //public LayerMask unteleportable;
     public float yNudgeAmount = 0.5f; //specific to telportAimerObject height
     public GameObject levelHint;
+    public GameLogic gameLogic;
 
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         laser = GetComponentInChildren<LineRenderer>();
 	}
@@ -91,17 +92,11 @@ public class ControllerInputManager : MonoBehaviour {
             player.transform.position = teleportLocation + playerHeadOffset;
             device.TriggerHapticPulse(2800);
         }
-        // toggle solution
+        // reset level
         if (device.GetPressUp(SteamVR_Controller.ButtonMask.Grip)) // getPressUp = button is released
         {
-            if (levelHint.activeSelf == false)
-            {
-                levelHint.SetActive(true);
-            }
-            else {
-                levelHint.SetActive(false);
-                }
             device.TriggerHapticPulse(4000);
+            gameLogic.ResetLevel();
         }
 
         // if player finger is on right touchpad, then enable ObjectMenu.

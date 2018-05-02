@@ -17,6 +17,11 @@ public class HandInteraction : MonoBehaviour {
     public bool hasPressedRight;
     public ObjectMenuManager objectMenuManager;
 
+    //hand stuff
+    public GameObject handObject;
+    public Color enabledColor = new Color(0, 255, 86, 255);
+    public Color disabledColor = new Color(80, 20, 86, 88);
+
 	// Use this for initialization
 	void Start () {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
@@ -26,10 +31,6 @@ public class HandInteraction : MonoBehaviour {
 	void Update () {
 
         device = SteamVR_Controller.Input((int)trackedObj.index);
-
-        if (objectMenuManager == null) {
-            return;
-        }
         
         if(device.GetTouchDown(SteamVR_Controller.ButtonMask.Touchpad))
         {
@@ -97,15 +98,23 @@ public class HandInteraction : MonoBehaviour {
             touchLast = 0;
             hasPressedLeft = false;
             hasPressedRight = false;
-            objectMenuManager.HideMenu();
+            //objectMenuManager.HideMenu();
         }
 
-        if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger) && objectMenuManager.GetMenuActiveState() == true)
+        if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
         {
-            // spawn object selected by menu
-            //SpawnObject();
+            // hands are now active
+            handObject.GetComponent<Collider>().enabled = true;
+            handObject.GetComponent<Renderer>().material.color = enabledColor;
         }
-	}
+
+        if (device.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
+        {
+            // hands are now inactive
+            handObject.GetComponent<Collider>().enabled = false;
+            handObject.GetComponent<Renderer>().material.color = disabledColor;
+        }
+    }
 
     void SpawnObject()
     {
@@ -114,16 +123,17 @@ public class HandInteraction : MonoBehaviour {
 
     void SwipeLeft()
     {
-        objectMenuManager.MenuLeft();
+        //objectMenuManager.MenuLeft();
     }
 
     void SwipeRight()
     {
-        objectMenuManager.MenuRight();
+        //objectMenuManager.MenuRight();
     }
 
     void OnTriggerStay(Collider col)
     {
+
         if(col.gameObject.CompareTag("Throwable"))
         {
             if (device.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
@@ -150,6 +160,9 @@ public class HandInteraction : MonoBehaviour {
 
         if (col.gameObject.CompareTag("Flippable"))
         {
+            handObject.GetComponent<Collider>().enabled = false;
+            handObject.GetComponent<Renderer>().material.color = disabledColor;
+
             if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
             {
                 FlipObject(col);
@@ -185,7 +198,7 @@ public class HandInteraction : MonoBehaviour {
         coli.transform.SetParent(null);
         Rigidbody rigidBody = coli.GetComponent<Rigidbody>();
         rigidBody.isKinematic = false;
-        rigidBody.velocity = device.velocity;
+        rigidBody.velocity = device.velocity*2;
         rigidBody.angularVelocity = device.angularVelocity;
     }
 
