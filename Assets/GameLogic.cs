@@ -22,10 +22,12 @@ public class GameLogic : MonoBehaviour {
     public TableBehavior Table1;
     public TableBehavior Table2;
     public TableBehavior Table3;
+    public TableBehavior Table4;
 
 
     // Use this for initialization
     void Start () {
+        
     }
 	
 	// Update is called once per frame
@@ -50,7 +52,7 @@ public class GameLogic : MonoBehaviour {
         Table1.ResetTable();
         Table2.ResetTable();
         Table3.ResetTable();
-
+        Table4.ResetTable();
     }
 
     public void IncrementScore()

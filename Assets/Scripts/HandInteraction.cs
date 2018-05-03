@@ -19,6 +19,7 @@ public class HandInteraction : MonoBehaviour {
 
     //hand stuff
     public GameObject handObject;
+    public GameObject currentlyTouchingTable;
     public Color enabledColor = new Color(0, 255, 86, 255);
     public Color disabledColor = new Color(80, 20, 86, 88);
 
