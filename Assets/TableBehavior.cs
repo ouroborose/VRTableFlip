@@ -12,6 +12,9 @@ public class TableBehavior : MonoBehaviour
     public Vector3 originalVelocity;
     public Quaternion originalRotation;
 
+    public bool isBreakable;
+    public GameObject brokenTable;
+
     // Use this for initialization
     void Start()
     {
@@ -24,7 +27,7 @@ public class TableBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ResetTable()
@@ -40,5 +43,15 @@ public class TableBehavior : MonoBehaviour
         //tableRigidBody.AddForce(handCurrentVelocity, ForceMode.Impulse);
     }
 
-
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.rigidbody.CompareTag("Flable"))
+        {
+            if (isBreakable == true)
+            {
+                Instantiate(brokenTable, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
+        }
+    }
 }

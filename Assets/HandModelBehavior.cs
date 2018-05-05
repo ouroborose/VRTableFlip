@@ -6,7 +6,10 @@ public class HandModelBehavior : MonoBehaviour {
 
     private Vector3 lastPosition;
     private Vector3 currentPosition;
+    public Vector3 targetVelocity;
     public Vector3 currentVelocity;
+
+    public float maxVelocityChange = 8f;
 
     public GameObject currentTable;
     public Transform controllerObject;
@@ -22,9 +25,16 @@ public class HandModelBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         currentPosition = transform.position;
+        currentVelocity = this.GetComponent<Rigidbody>().velocity;
         // controller's position minus my hand position
-        currentVelocity = controllerObject.position - currentPosition;
-        this.GetComponent<Rigidbody>().velocity = currentVelocity/Time.deltaTime;
+        targetVelocity = controllerObject.position - currentPosition;
+
+        if (float.IsNaN(targetVelocity.x) == false)
+        {
+            this.GetComponent<Rigidbody>().velocity = Vector3.MoveTowards(currentVelocity, targetVelocity / Time.deltaTime, maxVelocityChange);
+        }
+
+        //Vector3.MoveTowards(this.Rigidbody.velocity, velocityTarget, MaxVelocityChange);
 
         float angle;
         Vector3 axis;
@@ -36,7 +46,11 @@ public class HandModelBehavior : MonoBehaviour {
             angle -= 360;
 
         Vector3 angularTarget = Mathf.Deg2Rad*angle * axis;
-        this.GetComponent<Rigidbody>().angularVelocity = angularTarget / Time.deltaTime;
+
+        if (float.IsNaN(angularTarget.x) == false)
+        {
+            this.GetComponent<Rigidbody>().angularVelocity = angularTarget / Time.deltaTime;
+        }
 
         lastPosition = currentPosition;
     }
