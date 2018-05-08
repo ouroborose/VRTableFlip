@@ -32,7 +32,7 @@ public class TableBehavior : MonoBehaviour
 
     public void ResetTable()
     {
-        print("hiiii");
+        print("Tables are now reset");
         transform.position = originalPosition;
         tableRigidBody.velocity = originalVelocity;
         transform.rotation = originalRotation;
@@ -45,12 +45,16 @@ public class TableBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.rigidbody.CompareTag("Flable"))
+        if (collision.gameObject.CompareTag("Flable"))
         {
             if (isBreakable == true)
             {
                 Instantiate(brokenTable, transform.position, transform.rotation);
                 Destroy(gameObject);
+            }
+            if (collision.gameObject != null)
+            {
+                collision.gameObject.GetComponent<flableBehavior>().Tip();
             }
         }
     }
