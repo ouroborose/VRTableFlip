@@ -13,7 +13,10 @@ public class TableBehavior : MonoBehaviour
     public Quaternion originalRotation;
 
     public bool isBreakable;
+    public bool hasBroken = false;
     public GameObject brokenTable;
+
+    public GameLogic gameLogic;
 
     // Use this for initialization
     void Start()
@@ -36,6 +39,9 @@ public class TableBehavior : MonoBehaviour
         transform.position = originalPosition;
         tableRigidBody.velocity = originalVelocity;
         transform.rotation = originalRotation;
+        hasBroken = false;
+        gameObject.SetActive(true);
+        //search in scene for all broken tables and remove them
     }
 
     public void ThrowTable()
@@ -47,14 +53,14 @@ public class TableBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Flable"))
         {
-            if (isBreakable == true)
+            if (isBreakable == true && hasBroken == false) // this doens't always hit.. investigate
             {
+                print("HIT");
+                hasBroken = true;
                 Instantiate(brokenTable, transform.position, transform.rotation);
-                Destroy(gameObject);
-            }
-            if (collision.gameObject != null)
-            {
+                gameObject.SetActive(false);
                 collision.gameObject.GetComponent<flableBehavior>().Tip();
+                gameLogic.IncrementScore(collision.gameObject.GetComponent<flableBehavior>().flableScore);
             }
         }
     }

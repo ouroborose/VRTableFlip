@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class flableBehavior : MonoBehaviour {
 
     public GameObject flableRagdoll;
     public bool hasTipped = false;
+    public int flableScore = 1000;
+
 	// Use this for initialization
 	void Start () {
 		

@@ -28,7 +28,7 @@ public class Star : MonoBehaviour {
             {
                 //  if a ball touches this star destry star, increment score by 1000, play a sound
                 gameObject.SetActive(false);
-                gameLogic.IncrementScore();
+                
             }
 
         }

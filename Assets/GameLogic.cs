@@ -7,66 +7,54 @@ public class GameLogic : MonoBehaviour {
 
     public SteamVR_LoadLevel loadLevel;
 
-    public string[] levels = new string[5] {"Level1", "Level2", "Level3", "Level4", "level5" };
-    public string currentLevel;
-    public string nextSceneName;
-    public int starsCollected;
-    public GameObject ball;
-    public GameObject goal;
-    public Star[] starsInLevel;
+    public string[] levels = new string[3] { "Level1", "Level2", "Level3" };
+    public int currentLevel;
+    public TableBehavior[] tablesInLevel;
+    public flableBehavior[] flablesInLevel;
 
     public Text scoreText;
     public int scoreValue = 0;
 
-    // debug stuff
-    public TableBehavior Table1;
-    public TableBehavior Table2;
-    public TableBehavior Table3;
-    public TableBehavior Table4;
-
 
     // Use this for initialization
-    void Start () {
-        
-    }
-	
-	// Update is called once per frame
-	void Update () {
+    void Start() {
 
-	}
+    }
+
+    // Update is called once per frame
+    void Update() {
+
+    }
 
     public void ResetLevel()
     {
-        // turns all stars back on
+        // moves tables back
         // puts score to 0
 
-        //for (int i = 0; i < starsInLevel.Length; i++)
-        //{
-        //   starsInLevel[i].StarReset();
-        //  gameObject.SetActive(true);
-        //  scoreValue = 0;
-        //  scoreText.text = "Stars:  " + scoreValue.ToString() + " / " + starsInLevel.Length.ToString();
-        // }
+       for (int i = 0; i < tablesInLevel.Length; i++)
+        {
+            tablesInLevel[i].ResetTable();
+            scoreValue = 0;
+            scoreText.text = scoreValue.ToString();
+        }
 
-        //places tables back
-        Table1.ResetTable();
-        Table2.ResetTable();
-        Table3.ResetTable();
-        Table4.ResetTable();
     }
 
-    public void IncrementScore()
+    public void IncrementScore(int scoreAmount)
     {
-        scoreValue += 1;
-        scoreText.text = "Stars:  " + scoreValue.ToString() + " / " + starsInLevel.Length.ToString();
-        Debug.Log("I have gained 1 score");
+        scoreValue += scoreAmount;
+        scoreText.text = scoreValue.ToString();
+        Debug.Log("I have gained" + scoreAmount + "score");
     }
 
     [ContextMenu("GoToNextLevel")]
     public void GoToNextLevel()
     {
-        SteamVR_LoadLevel.Begin(nextSceneName);
-        //loadLevel.Trigger();
+        if(currentLevel+1 <= levels.Length)
+        {
+            SteamVR_LoadLevel.Begin(levels[currentLevel + 1]);
+        }
+
 
     }
 
