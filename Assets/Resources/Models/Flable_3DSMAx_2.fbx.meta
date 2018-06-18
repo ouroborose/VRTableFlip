@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: e5912d5de9e976d43ae845aa515f8b9a
+timeCreated: 1529308725
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Eyes_Joint
+    100002: //RootNode
+    100004: FlableSmile
+    100006: Geometry_Group
+    100008: Head_Joint
+    100010: Head_Tip_Joint
+    100012: Hip_joint
+    100014: L_ArmDeformation_01
+    100016: L_ArmDeformation_02
+    100018: L_ArmDeformation_03
+    100020: L_Eye_Grp
+    100022: L_Eye_Locator
+    100024: L_Leg_IK1
+    100026: L_Leg_IK3
+    100028: L_Shoulder_Joint
+    100030: Neck_Joint
+    100032: R_ArmDeformation_01
+    100034: R_ArmDeformation_02
+    100036: R_ArmDeformation_03
+    100038: R_Eye_Grp
+    100040: R_Eye_Locator
+    100042: R_EyeGeo
+    100044: R_EyeGeo1
+    100046: R_Leg_IK1
+    100048: R_Leg_IK3
+    100050: R_Shoulder_Joint
+    100052: Rib_L_Joint01
+    100054: Rib_L_Joint02
+    100056: Rib_R_Joint01
+    100058: Rib_R_Joint02
+    100060: Skeleton_Group
+    100062: Spine_Joint01
+    100064: Spine_Joint02
+    100066: Spine_Joint_03
+    100068: Spine_Joint_04
+    100070: Stomach_Joint01
+    100072: Stomach_Joint02
+    100074: transform1
+    100076: Waist_Joint
+    400000: Eyes_Joint
+    400002: //RootNode
+    400004: FlableSmile
+    400006: Geometry_Group
+    400008: Head_Joint
+    400010: Head_Tip_Joint
+    400012: Hip_joint
+    400014: L_ArmDeformation_01
+    400016: L_ArmDeformation_02
+    400018: L_ArmDeformation_03
+    400020: L_Eye_Grp
+    400022: L_Eye_Locator
+    400024: L_Leg_IK1
+    400026: L_Leg_IK3
+    400028: L_Shoulder_Joint
+    400030: Neck_Joint
+    400032: R_ArmDeformation_01
+    400034: R_ArmDeformation_02
+    400036: R_ArmDeformation_03
+    400038: R_Eye_Grp
+    400040: R_Eye_Locator
+    400042: R_EyeGeo
+    400044: R_EyeGeo1
+    400046: R_Leg_IK1
+    400048: R_Leg_IK3
+    400050: R_Shoulder_Joint
+    400052: Rib_L_Joint01
+    400054: Rib_L_Joint02
+    400056: Rib_R_Joint01
+    400058: Rib_R_Joint02
+    400060: Skeleton_Group
+    400062: Spine_Joint01
+    400064: Spine_Joint02
+    400066: Spine_Joint_03
+    400068: Spine_Joint_04
+    400070: Stomach_Joint01
+    400072: Stomach_Joint02
+    400074: transform1
+    400076: Waist_Joint
+    2300000: R_EyeGeo
+    2300002: R_EyeGeo1
+    3300000: R_EyeGeo
+    3300002: R_EyeGeo1
+    4300000: FlableSmile
+    4300002: R_EyeGeo
+    4300004: R_EyeGeo1
+    7400000: Idle
+    7400002: Walk
+    9500000: //RootNode
+    13700000: FlableSmile
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 15
+      lastFrame: 44
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 50
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
