@@ -96,7 +96,7 @@ public class ControllerInputManager : MonoBehaviour {
         if (device.GetPressUp(SteamVR_Controller.ButtonMask.Grip)) // getPressUp = button is released
         {
             device.TriggerHapticPulse(4000);
-            gameLogic.ResetLevel();
+            //gameLogic.ResetLevel();
         }
 
         // if player finger is on right touchpad, then enable ObjectMenu.

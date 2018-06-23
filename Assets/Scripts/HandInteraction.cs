@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class HandInteraction : MonoBehaviour {
 
@@ -20,8 +21,10 @@ public class HandInteraction : MonoBehaviour {
     //hand stuff
     public GameObject handObject;
     public GameObject currentlyTouchingTable;
-    public Color enabledColor = new Color(0, 255, 86, 255);
-    public Color disabledColor = new Color(80, 20, 86, 88);
+    //public Color enabledColor = new Color(0, 255, 86, 255);
+    //public Color disabledColor = new Color(80, 20, 86, 88);
+    public Material enabledColor;
+    public Material disabledColor;
 
 	// Use this for initialization
 	void Start () {
@@ -30,7 +33,7 @@ public class HandInteraction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        
         device = SteamVR_Controller.Input((int)trackedObj.index);
         
         if(device.GetTouchDown(SteamVR_Controller.ButtonMask.Touchpad))
@@ -106,14 +109,18 @@ public class HandInteraction : MonoBehaviour {
         {
             // hands are now active
             handObject.GetComponent<Collider>().enabled = true;
-            handObject.GetComponent<Renderer>().material.color = enabledColor;
+            handObject.GetComponentInChildren<SkinnedMeshRenderer>().material = enabledColor;
+            //handObject.GetComponent<handBlendManager>().closedAmount = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.Touch);
+            print("hi");
+            print("Value is: " + OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.Touch));
+            
         }
 
         if (device.GetPressUp(SteamVR_Controller.ButtonMask.Trigger))
         {
             // hands are now inactive
             handObject.GetComponent<Collider>().enabled = false;
-            handObject.GetComponent<Renderer>().material.color = disabledColor;
+            handObject.GetComponentInChildren<SkinnedMeshRenderer>().material = disabledColor;
         }
     }
 
@@ -162,7 +169,7 @@ public class HandInteraction : MonoBehaviour {
         if (col.gameObject.CompareTag("Flippable"))
         {
             handObject.GetComponent<Collider>().enabled = false;
-            handObject.GetComponent<Renderer>().material.color = disabledColor;
+            handObject.GetComponentInChildren<SkinnedMeshRenderer>().material = disabledColor;
 
             if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
             {
