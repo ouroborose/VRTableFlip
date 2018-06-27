@@ -41,7 +41,7 @@ public class OculusHandInteraction : MonoBehaviour {
         if (OVRInput.Get(triggerButton) == true)
         {
             // hands are now active
-            handColliders = GetComponentsInChildren<Collider>();
+            handColliders = handObject.GetComponentsInChildren<Collider>();
             foreach (Collider collider in handColliders)
                 collider.enabled = true;
             handObject.GetComponentInChildren<SkinnedMeshRenderer>().material = enabledColor;
@@ -51,7 +51,7 @@ public class OculusHandInteraction : MonoBehaviour {
 
         else if (OVRInput.Get(triggerButton) == false)
         {
-            handColliders = GetComponentsInChildren<Collider>();
+            handColliders = handObject.GetComponentsInChildren<Collider>();
             foreach (Collider collider in handColliders)
                 collider.enabled = false;
             // hands are now inactive
@@ -80,14 +80,14 @@ public class OculusHandInteraction : MonoBehaviour {
 
         if(col.gameObject.CompareTag("Throwable"))
         {
-            if (OVRInput.GetUp(triggerButton) == true)
-            {
+            //if (OVRInput.GetUp(triggerButton) == true)
+            //{
                 ThrowObject(col);
-            }
-            else if(OVRInput.GetDown(triggerButton) == true)
-            {
-                GrabObject(col);
-            }
+            //}
+           // else if(OVRInput.GetDown(triggerButton) == true)
+            //{
+           //     GrabObject(col);
+           // }
         }
 
         if (col.gameObject.CompareTag("Grabable"))
@@ -128,7 +128,9 @@ public class OculusHandInteraction : MonoBehaviour {
         Rigidbody rigidBody = coli.GetComponent<Rigidbody>();
         rigidBody.isKinematic = false;
         rigidBody.velocity = OVRInput.GetLocalControllerVelocity(m_controller) * throwForce;
-        rigidBody.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(m_controller);
+        //rigidBody.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(m_controller);
+        rigidBody.angularVelocity = new Vector3(0,0,0);
+        Debug.Log("table is being thrown");
         //Debug.Log("you have released the trigger");
 
         // otherwise, if player is standing outside of the start zone, then color the ball red , make cheating boolean true

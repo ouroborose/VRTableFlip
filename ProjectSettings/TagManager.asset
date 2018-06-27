@@ -11,6 +11,14 @@ TagManager:
   - Fader
   - dontmove
   - listlast
+  - Ground
+  - Goal
+  - Structure
+  - Throwable
+  - Table
+  - Flable
+  - Star
+  - LaserMask
   layers:
   - Default
   - TransparentFX
@@ -30,7 +38,7 @@ TagManager:
   - TeleportPoints
   - DemoUI
   - Toys
-  - 
+  - LaserMask
   - 
   - 
   - 
