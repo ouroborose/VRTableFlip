@@ -1,25 +1,3 @@
-/************************************************************************************
-
-Copyright   :   Copyright 2017 Oculus VR, LLC. All Rights reserved.
-
-Licensed under the Oculus VR Rift SDK License Version 3.4.1 (the "License");
-you may not use the Oculus VR Rift SDK except in compliance with the License,
-which is provided at the time of installation or download, or which
-otherwise accompanies this software in either electronic or hard copy form.
-
-You may obtain a copy of the License at
-
-https://developer.oculus.com/licenses/sdk-3.4.1
-
-
-Unless required by applicable law or agreed to in writing, the Oculus VR SDK
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-************************************************************************************/
-
 Shader "Tessellation/Bumped Specular (displacement)" {
 Properties {
 	_Color ("Main Color", Color) = (1,1,1,1)
@@ -46,6 +24,7 @@ struct appdata {
 	float3 normal : NORMAL;
 	float2 texcoord : TEXCOORD0;
 	float2 texcoord1 : TEXCOORD1;
+	float2 texcoord2 : TEXCOORD2;
 };
 
 float _EdgeLength;
@@ -57,11 +36,10 @@ float4 tessEdge (appdata v0, appdata v1, appdata v2)
 }
 
 sampler2D _ParallaxMap;
-float4 _ParallaxMap_ST;
 
 void disp (inout appdata v)
 {
-	float d = tex2Dlod(_ParallaxMap, float4(v.texcoord.xy * _ParallaxMap_ST,0,0)).a * _Parallax;
+	float d = tex2Dlod(_ParallaxMap, float4(v.texcoord.xy,0,0)).a * _Parallax;
 	v.vertex.xyz += v.normal * d;
 }
 
