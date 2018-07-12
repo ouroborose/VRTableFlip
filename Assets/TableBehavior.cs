@@ -12,7 +12,7 @@ public class TableBehavior : MonoBehaviour
     public Vector3 originalVelocity;
     public Quaternion originalRotation;
 
-    public bool isBreakable;
+    public bool isBreakable = true;
     public bool hasBroken = false;
     public GameObject brokenTable;
 
@@ -49,19 +49,44 @@ public class TableBehavior : MonoBehaviour
         //tableRigidBody.AddForce(handCurrentVelocity, ForceMode.Impulse);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Flable"))
+        //print("Hey this table has left the bounds");
+        if (collision.gameObject.CompareTag("TableBounds"))
         {
-            if (isBreakable == true && hasBroken == false) // this doens't always hit.. investigate
-            {
-                print("HIT");
-                hasBroken = true;
-                Instantiate(brokenTable, transform.position, transform.rotation);
-                gameObject.SetActive(false);
-                collision.gameObject.GetComponent<flableBehavior>().Tip();
-                gameLogic.IncrementScore(collision.gameObject.GetComponent<flableBehavior>().flableScore);
-            }
+           // print("HIT");
+            //hasBroken = true;
+            //Instantiate(brokenTable, transform.position, transform.rotation);
+            //gameObject.SetActive(false);
+            //collision.gameObject.GetComponent<flableBehavior>().Tip();
+            //gameLogic.IncrementScore(collision.gameObject.GetComponent<flableBehavior>().flableScore);
         }
     }
+
+    void OnTriggerExit (Collider other)
+    {
+        if (other.gameObject.CompareTag("TableBounds"))
+        {
+            if(hasBroken == false)
+            {
+                print("the table has left the trigger");
+                hasBroken = true;
+                Vector3 tempTableVel = tableRigidBody.velocity;
+                Vector3 tempTableAngVel = tableRigidBody.angularVelocity;
+                GameObject newBrokenTable = Instantiate(brokenTable, transform.position, transform.rotation);
+                Rigidbody[] tableParts = newBrokenTable.GetComponentsInChildren<Rigidbody>();
+
+                for (int i = 0; i < tableParts.Length; i++)
+                {
+                    tableParts[i].velocity = tempTableVel;
+                    tableParts[i].angularVelocity = tempTableAngVel;
+                }
+                
+                gameObject.SetActive(false);
+            }
+            
+        }
+    }
+
+
 }

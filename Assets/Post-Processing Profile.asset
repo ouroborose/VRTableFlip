@@ -40,7 +40,7 @@ MonoBehaviour:
         stationaryBlending: 0.95
         motionBlending: 0.85
   ambientOcclusion:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       intensity: 0.76
       radius: 0.51
@@ -100,7 +100,7 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.6
+        intensity: 0.51
         threshold: 1.1
         softKnee: 0.6
         radius: 4
@@ -121,7 +121,7 @@ MonoBehaviour:
         neutralWhiteClip: 10
       basic:
         postExposure: 1.1
-        temperature: 5
+        temperature: 6
         tint: 3
         hueShift: 0
         saturation: 1.1
@@ -138,9 +138,9 @@ MonoBehaviour:
           power: {r: 1, g: 1, b: 1, a: 0}
           offset: {r: 1, g: 1, b: 1, a: 0}
         linear:
-          lift: {r: 0.5806092, g: 0.634759, b: 1, a: 0}
-          gamma: {r: 1, g: 0.7097332, b: 0.55300534, a: 0}
-          gain: {r: 1, g: 0.7504949, b: 0.9959931, a: 0}
+          lift: {r: 1, g: 0.82324255, b: 0.5969028, a: 0}
+          gamma: {r: 0.5596999, g: 0.36751068, b: 1, a: 0}
+          gain: {r: 0.7096459, g: 0.6725249, b: 1, a: 0}
       curves:
         master:
           curve:

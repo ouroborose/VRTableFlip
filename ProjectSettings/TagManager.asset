@@ -19,6 +19,7 @@ TagManager:
   - Flable
   - Star
   - LaserMask
+  - TableBounds
   layers:
   - Default
   - TransparentFX
