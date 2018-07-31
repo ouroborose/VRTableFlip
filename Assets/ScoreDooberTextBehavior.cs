@@ -27,7 +27,7 @@ public class ScoreDooberTextBehavior : MonoBehaviour {
         ScoreText.SetText(scoreValue.ToString());
         ScoreText.transform.DOMove(new Vector3(ScoreText.transform.position.x, ScoreText.transform.position.y + .8f, ScoreText.transform.position.z)+Random.insideUnitSphere*.5f, 1);
         //ScoreText.CrossFadeAlpha(0.5f, .5f, false);
-        Destroy(gameObject, 1.5);
+        Destroy(gameObject, 1.5f);
 
     }
 }
