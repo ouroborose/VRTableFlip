@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65732495572572952}
   - component: {fileID: 54829592187439600}
   - component: {fileID: 138958955978042798}
+  - component: {fileID: 114154513880030974}
   m_Layer: 0
   m_Name: Torus
   m_TagString: Untagged
@@ -43,7 +44,6 @@ GameObject:
   - component: {fileID: 23623657545185182}
   - component: {fileID: 64426295043499730}
   - component: {fileID: 54373123907963886}
-  - component: {fileID: 114599614381708226}
   m_Layer: 0
   m_Name: TableTop
   m_TagString: Untagged
@@ -92,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4630819243862114}
   - component: {fileID: 95270840209587178}
+  - component: {fileID: 114028764477083230}
   m_Layer: 0
   m_Name: MosaicTableBreakable 1
   m_TagString: Table
@@ -1704,6 +1705,26 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114028764477083230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1512263817454058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52781e11e47e0a844b08529ac41f7529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tableRigidBody: {fileID: 0}
+  originalPosition: {x: 0, y: 0, z: 0}
+  originalVelocity: {x: 0, y: 0, z: 0}
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
+  isBreakable: 1
+  hasBroken: 0
+  brokenTable: {fileID: 0}
+  gameLogic: {fileID: 0}
+  tableJoints: []
 --- !u!114 &114033142109562268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1716,6 +1737,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   componentVelocity: {x: 0, y: 0, z: 0}
+  scoreDoober: {fileID: 1780863146842916, guid: e5c283c7d9c3c48408b620ad6ece9d1d,
+    type: 2}
+  baseScore: 10
+  scoreMultiplier: 5
 --- !u!114 &114141412097148624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1728,6 +1753,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   componentVelocity: {x: 0, y: 0, z: 0}
+  scoreDoober: {fileID: 1780863146842916, guid: e5c283c7d9c3c48408b620ad6ece9d1d,
+    type: 2}
+  baseScore: 10
+  scoreMultiplier: 5
+--- !u!114 &114154513880030974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1112481790282694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511b10efdaf508842888dc3c9ba77217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentVelocity: {x: 0, y: 0, z: 0}
+  scoreDoober: {fileID: 1780863146842916, guid: e5c283c7d9c3c48408b620ad6ece9d1d,
+    type: 2}
+  baseScore: 10
+  scoreMultiplier: 1
 --- !u!114 &114449064050903674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1740,18 +1785,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   componentVelocity: {x: 0, y: 0, z: 0}
---- !u!114 &114599614381708226
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1236747682402150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511b10efdaf508842888dc3c9ba77217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  componentVelocity: {x: 0, y: 0, z: 0}
+  scoreDoober: {fileID: 1780863146842916, guid: e5c283c7d9c3c48408b620ad6ece9d1d,
+    type: 2}
+  baseScore: 10
+  scoreMultiplier: 5
 --- !u!114 &114765033453301342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1764,6 +1801,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   componentVelocity: {x: 0, y: 0, z: 0}
+  scoreDoober: {fileID: 1780863146842916, guid: e5c283c7d9c3c48408b620ad6ece9d1d,
+    type: 2}
+  baseScore: 10
+  scoreMultiplier: 5
 --- !u!136 &136063164686905716
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1876,7 +1917,7 @@ FixedJoint:
   m_GameObject: {fileID: 1886448873668088}
   m_ConnectedBody: {fileID: 54373123907963886}
   m_BreakForce: 600
-  m_BreakTorque: 125
+  m_BreakTorque: 100
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
   m_MassScale: 1
@@ -1889,7 +1930,7 @@ FixedJoint:
   m_GameObject: {fileID: 1806008324661938}
   m_ConnectedBody: {fileID: 54373123907963886}
   m_BreakForce: 600
-  m_BreakTorque: 125
+  m_BreakTorque: 100
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
   m_MassScale: 1
@@ -1902,7 +1943,7 @@ FixedJoint:
   m_GameObject: {fileID: 1641562294235048}
   m_ConnectedBody: {fileID: 54373123907963886}
   m_BreakForce: 600
-  m_BreakTorque: 125
+  m_BreakTorque: 100
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
   m_MassScale: 1
@@ -1928,7 +1969,7 @@ FixedJoint:
   m_GameObject: {fileID: 1970128040711546}
   m_ConnectedBody: {fileID: 54373123907963886}
   m_BreakForce: 600
-  m_BreakTorque: 125
+  m_BreakTorque: 100
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
   m_MassScale: 1

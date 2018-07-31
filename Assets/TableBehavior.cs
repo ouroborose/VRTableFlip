@@ -18,18 +18,18 @@ public class TableBehavior : MonoBehaviour
 
     public GameLogic gameLogic;
 
+    public FixedJoint[] tableJoints;
+
     // Use this for initialization
     void Start()
     {
-
-        originalPosition = transform.position;
-        originalVelocity = tableRigidBody.velocity;
-        originalRotation = transform.rotation;
+        tableJoints = GetComponentsInChildren<FixedJoint>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if at any point the fixed joint breaks WHILE the table is outside the trigger, then add to score
 
     }
 
@@ -67,7 +67,8 @@ public class TableBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("TableBounds"))
         {
-            if(hasBroken == false)
+            
+            /*if(hasBroken == false)
             {
                 print("the table has left the trigger");
                 hasBroken = true;
@@ -83,7 +84,7 @@ public class TableBehavior : MonoBehaviour
                 }
                 
                 gameObject.SetActive(false);
-            }
+            }*/
             
         }
     }

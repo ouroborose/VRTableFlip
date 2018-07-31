@@ -9,6 +9,10 @@ public class TableComponentBehavior : MonoBehaviour {
     TrailRenderer[] trails;
     bool shouldShowTrail;
     float trailTime = .25f;
+    public GameObject scoreDoober;
+
+    public int baseScore = 10;
+    public int scoreMultiplier;
 
     // Use this for initialization
     void Start () {
@@ -31,4 +35,14 @@ public class TableComponentBehavior : MonoBehaviour {
         }
         
 	}
+
+    void OnJointBreak(float breakForce)
+    {
+        int talliedScore = baseScore * scoreMultiplier;
+        Debug.Log("A joint has just been broken!, force: " + breakForce);
+        ScoreSystem.score += (talliedScore);
+        ScoreDooberTextBehavior.scoreValue = talliedScore;
+        Instantiate(scoreDoober, transform.position, Quaternion.identity);
+        
+    }
 }

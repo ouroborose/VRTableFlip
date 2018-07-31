@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 54620831565394746}
   - component: {fileID: 138582115071239172}
   - component: {fileID: 138146397645009774}
+  - component: {fileID: 114186193453922872}
   m_Layer: 0
   m_Name: Arm2
   m_TagString: Untagged
@@ -146,6 +147,7 @@ GameObject:
   - component: {fileID: 4227917832552388}
   - component: {fileID: 54054201262385914}
   - component: {fileID: 138701844010063514}
+  - component: {fileID: 114090923582427160}
   m_Layer: 0
   m_Name: BackSlats
   m_TagString: Untagged
@@ -216,6 +218,7 @@ GameObject:
   - component: {fileID: 54949710776339388}
   - component: {fileID: 138421041424066032}
   - component: {fileID: 138591113229449480}
+  - component: {fileID: 114183826821204104}
   m_Layer: 0
   m_Name: Arm1
   m_TagString: Untagged
@@ -354,6 +357,7 @@ GameObject:
   - component: {fileID: 4970531722892968}
   - component: {fileID: 54952097786736584}
   - component: {fileID: 138383174183712134}
+  - component: {fileID: 114715359537533882}
   m_Layer: 0
   m_Name: Buttslats
   m_TagString: Untagged
@@ -835,8 +839,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1388915361840218}
-  m_LocalRotation: {x: -0, y: -0.7430185, z: -0, w: 0.66927093}
-  m_LocalPosition: {x: -0.322, y: 0.6799998, z: -4.3}
+  m_LocalRotation: {x: -0, y: 0.5289086, z: -0, w: 0.8486788}
+  m_LocalPosition: {x: -1.7472645, y: 0.6799998, z: -4.618327}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children:
   - {fileID: 4227917832552388}
@@ -2332,6 +2336,70 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114090923582427160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1190398390350354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511b10efdaf508842888dc3c9ba77217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentVelocity: {x: 0, y: 0, z: 0}
+  scoreDoober: {fileID: 1780863146842916, guid: e5c283c7d9c3c48408b620ad6ece9d1d,
+    type: 2}
+  baseScore: 10
+  scoreMultiplier: 5
+--- !u!114 &114183826821204104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1301617789670572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511b10efdaf508842888dc3c9ba77217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentVelocity: {x: 0, y: 0, z: 0}
+  scoreDoober: {fileID: 1780863146842916, guid: e5c283c7d9c3c48408b620ad6ece9d1d,
+    type: 2}
+  baseScore: 10
+  scoreMultiplier: 1
+--- !u!114 &114186193453922872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102587613483702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511b10efdaf508842888dc3c9ba77217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentVelocity: {x: 0, y: 0, z: 0}
+  scoreDoober: {fileID: 1780863146842916, guid: e5c283c7d9c3c48408b620ad6ece9d1d,
+    type: 2}
+  baseScore: 10
+  scoreMultiplier: 1
+--- !u!114 &114715359537533882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1657475121363784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511b10efdaf508842888dc3c9ba77217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componentVelocity: {x: 0, y: 0, z: 0}
+  scoreDoober: {fileID: 1780863146842916, guid: e5c283c7d9c3c48408b620ad6ece9d1d,
+    type: 2}
+  baseScore: 10
+  scoreMultiplier: 5
 --- !u!136 &136103853056808634
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2431,7 +2499,7 @@ FixedJoint:
   m_GameObject: {fileID: 1657475121363784}
   m_ConnectedBody: {fileID: 54054201262385914}
   m_BreakForce: 600
-  m_BreakTorque: 250
+  m_BreakTorque: 270
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
@@ -2444,7 +2512,7 @@ FixedJoint:
   m_GameObject: {fileID: 1301617789670572}
   m_ConnectedBody: {fileID: 54054201262385914}
   m_BreakForce: 600
-  m_BreakTorque: 250
+  m_BreakTorque: 270
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
@@ -2457,7 +2525,7 @@ FixedJoint:
   m_GameObject: {fileID: 1102587613483702}
   m_ConnectedBody: {fileID: 54054201262385914}
   m_BreakForce: 600
-  m_BreakTorque: 250
+  m_BreakTorque: 270
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
@@ -2483,7 +2551,7 @@ FixedJoint:
   m_GameObject: {fileID: 1190398390350354}
   m_ConnectedBody: {fileID: 54952097786736584}
   m_BreakForce: 600
-  m_BreakTorque: 250
+  m_BreakTorque: 270
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
