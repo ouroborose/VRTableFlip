@@ -20,6 +20,7 @@ TagManager:
   - Star
   - LaserMask
   - TableBounds
+  - Projectile
   layers:
   - Default
   - TransparentFX

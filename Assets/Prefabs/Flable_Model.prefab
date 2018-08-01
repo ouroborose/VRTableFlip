@@ -1018,8 +1018,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685621880166350}
-  m_LocalRotation: {x: -0, y: 0.20997278, z: -0, w: 0.97770727}
-  m_LocalPosition: {x: -2.4159837, y: 0.595, z: -8.456}
+  m_LocalRotation: {x: -0, y: 0.9207867, z: -0, w: 0.3900665}
+  m_LocalPosition: {x: -4.349, y: 0.449, z: -8.666}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4863664177413568}
@@ -1027,7 +1027,7 @@ Transform:
   - {fileID: 4597278462701050}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 24.242, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 134.08301, z: 0}
 --- !u!4 &4863664177413568
 Transform:
   m_ObjectHideFlags: 1
@@ -1244,7 +1244,11 @@ MonoBehaviour:
   flableRagdoll: {fileID: 1137888843960778, guid: 0ae3a46a344dc044197b29a5f609605f,
     type: 2}
   hasTipped: 0
-  flableScore: 1000
+  flableScore: 100
+  maxSpeed: 150
+  scoreDoober: {fileID: 1780863146842916, guid: e5c283c7d9c3c48408b620ad6ece9d1d,
+    type: 2}
+  explosionPower: 150
 --- !u!136 &136148715454214052
 CapsuleCollider:
   m_ObjectHideFlags: 1
