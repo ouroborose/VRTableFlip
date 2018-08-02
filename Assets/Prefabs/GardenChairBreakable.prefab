@@ -839,8 +839,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1388915361840218}
-  m_LocalRotation: {x: -0, y: 0.45141652, z: -0, w: 0.89231336}
-  m_LocalPosition: {x: -2.361, y: 0.6799998, z: -3.1399999}
+  m_LocalRotation: {x: -0, y: 0.5289086, z: -0, w: 0.8486788}
+  m_LocalPosition: {x: -1.7472645, y: 0.6799998, z: -4.618327}
   m_LocalScale: {x: 1.1000003, y: 1.1, z: 1.1000003}
   m_Children:
   - {fileID: 4227917832552388}
@@ -2485,8 +2485,8 @@ FixedJoint:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1102587613483702}
   m_ConnectedBody: {fileID: 54952097786736584}
-  m_BreakForce: 600
-  m_BreakTorque: 250
+  m_BreakForce: 1000
+  m_BreakTorque: 300
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
@@ -2537,8 +2537,8 @@ FixedJoint:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1301617789670572}
   m_ConnectedBody: {fileID: 54952097786736584}
-  m_BreakForce: 600
-  m_BreakTorque: 250
+  m_BreakForce: 1000
+  m_BreakTorque: 300
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
