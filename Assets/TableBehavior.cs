@@ -54,7 +54,7 @@ public class TableBehavior : MonoBehaviour
         //print("Hey this table has left the bounds");
         if (collision.gameObject.CompareTag("TableBounds"))
         {
-           // print("HIT");
+            print("HIT");
             //hasBroken = true;
             //Instantiate(brokenTable, transform.position, transform.rotation);
             //gameObject.SetActive(false);
@@ -67,7 +67,7 @@ public class TableBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("TableBounds"))
         {
-            
+            print("the table has left the trigger");
             /*if(hasBroken == false)
             {
                 print("the table has left the trigger");
@@ -85,7 +85,7 @@ public class TableBehavior : MonoBehaviour
                 
                 gameObject.SetActive(false);
             }*/
-            
+
         }
     }
 
