@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OculusControllerInputManager : MonoBehaviour {
     public SteamVR_TrackedObject trackedObj;
@@ -29,6 +30,7 @@ public class OculusControllerInputManager : MonoBehaviour {
     public GameObject levelHint;
     public GameLogic gameLogic;
     public GameObject handMenu;
+    public string MenuSceneName;
 
     //debug purposes
     public GameObject someNewObject;
@@ -126,6 +128,12 @@ public class OculusControllerInputManager : MonoBehaviour {
         {
             print("Menu is closed");
             handMenu.SetActive(false);
+        }
+
+        if (OVRInput.GetUp(OVRInput.Button.Start))
+        {
+            print("Back to menu");
+            OVRSceneLoader.LoadSceneViaLoadingScene(MenuSceneName);
         }
     }
 }

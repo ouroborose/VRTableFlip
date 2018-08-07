@@ -45,7 +45,7 @@ public class OculusHandInteraction : MonoBehaviour {
             foreach (Collider collider in handColliders)
                 collider.enabled = true;
             handObject.GetComponentInChildren<SkinnedMeshRenderer>().material = enabledColor;
-            handObject.GetComponent<handBlendManager>().closedAmount = OVRInput.Get(triggerAxis, OVRInput.Controller.Touch);
+            handObject.GetComponent<handBlendManager>().closedAmount = 0.7f * (OVRInput.Get(triggerAxis, OVRInput.Controller.Touch));
             
         }
 
@@ -57,6 +57,7 @@ public class OculusHandInteraction : MonoBehaviour {
             // hands are now inactive
             // handObject.GetComponentInChildren<Collider>().enabled = false;
             handObject.GetComponentInChildren<SkinnedMeshRenderer>().material = disabledColor;
+            handObject.GetComponent<handBlendManager>().closedAmount = 0f;
         }
     }
 
