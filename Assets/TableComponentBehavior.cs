@@ -7,12 +7,16 @@ public class TableComponentBehavior : MonoBehaviour {
     public Vector3 componentVelocity;
     const float minVelocity = 2f;
     TrailRenderer[] trails;
+
     bool shouldShowTrail;
     float trailTime = .25f;
     public GameObject scoreDoober;
 
     public int baseScore = 10;
     public int scoreMultiplier;
+
+    public AudioClip[] breakingSounds;
+    public AudioSource audioSource;
 
     // Use this for initialization
     void Start () {
@@ -43,6 +47,7 @@ public class TableComponentBehavior : MonoBehaviour {
         ScoreSystem.score += (talliedScore);
         ScoreDooberTextBehavior.scoreValue = talliedScore;
         Instantiate(scoreDoober, transform.position, Quaternion.identity);
+        audioSource.PlayOneShot(breakingSounds[Random.Range(0, breakingSounds.Length)]);
         
     }
 }
