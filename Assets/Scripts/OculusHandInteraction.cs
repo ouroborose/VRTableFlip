@@ -131,7 +131,7 @@ public class OculusHandInteraction : MonoBehaviour {
         rigidBody.velocity = OVRInput.GetLocalControllerVelocity(m_controller) * throwForce;
         //rigidBody.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(m_controller);
         rigidBody.angularVelocity = new Vector3(0,0,0);
-        Debug.Log("table is being thrown");
+        //Debug.Log("table is being thrown");
         //Debug.Log("you have released the trigger");
 
         // otherwise, if player is standing outside of the start zone, then color the ball red , make cheating boolean true

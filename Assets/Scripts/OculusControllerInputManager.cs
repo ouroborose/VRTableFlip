@@ -64,7 +64,7 @@ public class OculusControllerInputManager : MonoBehaviour {
                 
                 teleportLocation = hit.point;
                 laser.SetPosition(1, teleportLocation);
-                Debug.Log("raycast hit laserMask at a height of: " + teleportLocation.y + " plus a yNudge amount of" + yNudgeAmount + " =" + (teleportLocation.y+yNudgeAmount));
+                //Debug.Log("raycast hit laserMask at a height of: " + teleportLocation.y + " plus a yNudge amount of" + yNudgeAmount + " =" + (teleportLocation.y+yNudgeAmount));
                 // moves the cylinder to the hit position
                 teleportAimerObject.transform.position = new Vector3(teleportLocation.x, teleportLocation.y + yNudgeAmount, teleportLocation.z);
 
@@ -75,7 +75,7 @@ public class OculusControllerInputManager : MonoBehaviour {
             else // if the raycast does not hit the lasermask position
             {
                 
-                Debug.Log("raycast reached end and is now raycasted to the ground");
+                //Debug.Log("raycast reached end and is now raycasted to the ground");
                 Vector3 endOfLaser = transform.position + transform.forward * teleportDistance;
                 debugLine.SetPosition(0, endOfLaser);
                 debugLine.SetPosition(1, endOfLaser + new Vector3(0, -30, 0));
@@ -91,7 +91,7 @@ public class OculusControllerInputManager : MonoBehaviour {
 
                 else // if the teleport laser is pointed completely out of the play area
                 {
-                    Debug.Log("all other cases");
+                   // Debug.Log("all other cases");
 
                     Vector3 playerHeadOffset = player.transform.position - headObject.transform.position;
                     playerHeadOffset.y = 0;
@@ -108,7 +108,7 @@ public class OculusControllerInputManager : MonoBehaviour {
 
         if(OVRInput.GetUp(buttonToTeleport)) // getPressUp = button is released
         {
-            Debug.Log("teleported to " + teleportAimerObject.transform.position.y);
+           // Debug.Log("teleported to " + teleportAimerObject.transform.position.y);
             laser.gameObject.SetActive(false);
             teleportAimerObject.SetActive(false);
             Vector3 playerHeadOffset = player.transform.position - headObject.transform.position;
@@ -120,19 +120,19 @@ public class OculusControllerInputManager : MonoBehaviour {
         // hand menu
         if (OVRInput.Get(OVRInput.Button.SecondaryHandTrigger))
         {
-            print("Menu is open");
+            //print("Menu is open");
             handMenu.SetActive(true);
         }
 
         if (OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger)) 
         {
-            print("Menu is closed");
+            //print("Menu is closed");
             handMenu.SetActive(false);
         }
 
         if (OVRInput.GetUp(OVRInput.Button.Start))
         {
-            print("Back to menu");
+           // print("Back to menu");
             OVRSceneLoader.LoadSceneViaLoadingScene(MenuSceneName);
         }
     }

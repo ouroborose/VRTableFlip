@@ -105,7 +105,7 @@ public class OVRSceneLoader : MonoBehaviour {
         async.allowSceneActivation = true;
         
         yield return async;
-        Debug.Log("Loading complete");
+        //Debug.Log("Loading complete");
     }
 	
 }

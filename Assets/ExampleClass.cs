@@ -9,7 +9,7 @@ public class ExampleClass : MonoBehaviour
         while (i < 4)
         {
             if (Mathf.Abs(Input.GetAxis("Joy" + i + "X")) > 0.2F || Mathf.Abs(Input.GetAxis("Joy" + i + "Y")) > 0.2F)
-                Debug.Log(Input.GetJoystickNames()[i] + " is moved");
+                //Debug.Log(Input.GetJoystickNames()[i] + " is moved");
 
             i++;
         }

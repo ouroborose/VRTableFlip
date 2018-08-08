@@ -48,7 +48,7 @@ public class ControllerInputManager : MonoBehaviour {
             //creates a ray from the controller position in the forward direction of the controller
             //outputs a hit object and has a max range of x meters can only collide with laserMask
             {
-                Debug.Log("raycast hit laserMask");
+               // Debug.Log("raycast hit laserMask");
                 teleportLocation = hit.point;
                 laser.SetPosition(1, teleportLocation);
                 // moves the cylinder to the hit position position position position position position

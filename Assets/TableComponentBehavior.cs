@@ -43,11 +43,14 @@ public class TableComponentBehavior : MonoBehaviour {
     void OnJointBreak(float breakForce)
     {
         int talliedScore = baseScore * scoreMultiplier;
-        Debug.Log("A joint has just been broken!, force: " + breakForce);
+        //Debug.Log("A joint has just been broken!, force: " + breakForce);
         ScoreSystem.score += (talliedScore);
         ScoreDooberTextBehavior.scoreValue = talliedScore;
         Instantiate(scoreDoober, transform.position, Quaternion.identity);
-        audioSource.PlayOneShot(breakingSounds[Random.Range(0, breakingSounds.Length)]);
-        
+        if( breakingSounds.Length > 0)
+        {
+            audioSource.PlayOneShot(breakingSounds[Random.Range(0, breakingSounds.Length)]);
+        }
+
     }
 }

@@ -6,6 +6,8 @@ public class TableExitManager : MonoBehaviour
 {
     public string NextSceneName;
 
+    protected bool m_sceneIsLoading = false;
+
     // Use this for initialization
     void Start()
     {
@@ -20,12 +22,25 @@ public class TableExitManager : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        if(m_sceneIsLoading)
+        {
+            return;
+        }
+
         if (other.gameObject.CompareTag("Table"))
         {
-            print("the table has left the trigger");
+            //print("the table has left the trigger");
             //SteamVR_LoadLevel.Begin(NextSceneName);
-            OVRSceneLoader.LoadSceneViaLoadingScene(NextSceneName);
+            m_sceneIsLoading = true;
+            StartCoroutine(LoadNextScene());
 
         }
+    }
+
+    IEnumerator LoadNextScene()
+    {
+        yield return new WaitForSeconds(2.0f);
+        OVRSceneLoader.LoadSceneViaLoadingScene(NextSceneName);
+
     }
 }

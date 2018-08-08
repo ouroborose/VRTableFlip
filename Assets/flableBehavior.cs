@@ -30,7 +30,7 @@ public class flableBehavior : MonoBehaviour
     {
         if (collision.gameObject.GetComponentInParent<TableComponentBehavior>() != null || collision.gameObject.CompareTag("Projectile"))
         {
-            Debug.Log("This flable has been hit!");
+            //Debug.Log("This flable has been hit!");
             explosionPos = collision.gameObject.GetComponentInChildren<Rigidbody>().position;
             Tip();
         }
@@ -42,7 +42,7 @@ public class flableBehavior : MonoBehaviour
         if (hasTipped == false)
         {
             hasTipped = true;
-            Debug.Log("Flable has been tipped");
+            //Debug.Log("Flable has been tipped");
             GameObject flableRagdollObj = Instantiate(flableRagdoll, transform.position, transform.rotation);
             Vector3 ragdollVelocity = flableRagdollObj.GetComponentInChildren<Rigidbody>().velocity;
             //adds an explosion force to the ragdoll flable
@@ -51,7 +51,7 @@ public class flableBehavior : MonoBehaviour
             flableRagdollObj.GetComponentInChildren<SkinnedMeshRenderer>().materials[0].color = gameObject.GetComponentInChildren<SkinnedMeshRenderer>().materials[0].color;
             
             //ragdollVelocity = Vector3.ClampMagnitude(ragdollVelocity, maxSpeed);
-            Debug.Log("flable velocity clamped to: " + ragdollVelocity);
+            //Debug.Log("flable velocity clamped to: " + ragdollVelocity);
             Destroy(gameObject);
 
             ScoreSystem.score += flableScore;
