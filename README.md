@@ -1,6 +1,9 @@
 # VRTableFlip
-A physics game where you can vent your frustration by flipping tables (ノ°Д°）ノ︵ ┻━┻<br>
-Made for Udacity VR Developer Nanodegree
+Made for Udacity VR Developer Nanodegree, Flable Tip is a physics game where you can vent your frustration by flipping tables (ノ°Д°）ノ︵ ┻━┻ The aim of the game is to provide a cathartic space where the player can vent their negative emotions. They can do this by flipping tables and causing silly, cartoon mayhem. The game keeps score based on how many items are destroyed, and how many Flables have been hit by tables and projectiles.<br>
+The project has only been tested with the Oculus Rift.
+
+# Final video link
+https://youtu.be/2AqTas_DbGU
 
 # Instructions
 The aim of the game is the flip tables and score points.
@@ -23,4 +26,4 @@ Diegetic UI achievement - 250<br>
 3D modeling achievement - 250<br>
 
 ### Challenges (500 pts)
-User Testing achievement - 250 (x2 with 750pts in Completeness)
+User Testing achievement - 250 (x2 with 750pts in Completedness)
